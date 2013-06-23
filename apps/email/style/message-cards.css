@@ -52,6 +52,11 @@ input.msg-search-text-tease {
   font-style: italic;
 }
 
+.msg-header-author.alreadyRead, .msg-header-subject.alreadyRead {
+    color: #555;
+    font-weight: 400;
+}
+
 /* Sections horizontally chop up the item: unread, details, icons, avatar.
  * We have 320 horizontal pixels to play with.
  */

@@ -738,11 +738,11 @@ MessageListCard.prototype = {
     if (addedItems.length > 0) {
       this.hideEmptyLayout();
     }
-
+    
     addedItems.forEach(function(message) {
       var domMessage;
       domMessage = message.element = msgNodes['header-item'].cloneNode(true);
-
+      
       if (self.mode === 'nonsearch') {
         domMessage.message = message;
         self.updateMessageDom(true, message);
@@ -788,11 +788,16 @@ MessageListCard.prototype = {
 
     // unread (we use very specific classes directly on the nodes rather than
     // child selectors for hypothetical speed)
+        
     var unreadNode =
       msgNode.getElementsByClassName('msg-header-unread-section')[0];
     if (message.isRead) {
       unreadNode.classList.remove('msg-header-unread-section-unread');
       dateNode.classList.remove('msg-header-date-unread');
+
+      msgNode.getElementsByClassName('msg-header-author')[0].classList.add('alreadyRead');
+      msgNode.getElementsByClassName('msg-header-subject')[0].classList.add('alreadyRead');      
+      
     }
     else {
       unreadNode.classList.add('msg-header-unread-section-unread');
